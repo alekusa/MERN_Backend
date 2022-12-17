@@ -1,5 +1,7 @@
 import express from "express";
-import postsRouters from "./routes/posts.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
+import postRoutes from "./routes/posts.routes.js";
+import userRoutes from "./routes/user.routes.js";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 
@@ -16,6 +18,6 @@ app.use(
   })
 );
 //router
-app.use(postsRouters);
+app.use(adminRoutes, postRoutes, userRoutes);
 
 export default app;

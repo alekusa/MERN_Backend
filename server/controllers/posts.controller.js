@@ -1,11 +1,12 @@
 // ## Ver ampliar el backend con ##//
 // ## joi , expressvalidator , convertir a typescript , testing . ntn testing ## //
+
 //importando el modelo
+
 import Post from "../models/post.js";
 import { uploadImage, deleteImage } from "../libs/cloudinary.js";
 // fs-extra para elimiar imagenes del server
 import fs from "fs-extra";
-import post from "../models/post.js";
 
 export const getPosts = async (req, res) => {
   try {
