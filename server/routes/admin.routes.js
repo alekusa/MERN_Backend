@@ -1,7 +1,8 @@
 import { Router } from "express";
 const router = Router();
+import { adminLog, getAdmin } from "../controllers/admin.controller.js";
 
-router.get("/admin", (req, res) => res.send("Pagina de Administracion"));
-router.get("/adminlog", (req, res) => res.send("Admin LOGIN"));
+router.get("/admin", getAdmin);
+router.get("/adminlog", adminLog);
 
 export default router;

@@ -2,6 +2,7 @@ import express from "express";
 import adminRoutes from "./routes/admin.routes.js";
 import postRoutes from "./routes/posts.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import imgRoutes from "./routes/img.routes.js";
 import fileUpload from "express-fileupload";
 import cors from "cors";
 
@@ -18,6 +19,6 @@ app.use(
   })
 );
 //router
-app.use(adminRoutes, postRoutes, userRoutes);
+app.use(adminRoutes, postRoutes, userRoutes, imgRoutes);
 
 export default app;
