@@ -14,13 +14,13 @@ https://mernbackend-production-c23a.up.railway.app/posts
 
 https://mernfrontend-production.up.railway.app/
 
-Node - Express - desarrollo backend de alekusa, en estudio del backend como autodidacta .!
-gracias a Fazt y su canal en youtube /
-https://www.youtube.com/@FaztCode
-
 ## Base de datos en Servidores cloud.MongoDB.com
 
 https://cloud.mongodb.com/
+
+## Imagenes almacenadas en Cloudinary.com
+
+https://cloudinary.com/
 
 AccesPoint / Access Point
 Puntos de acceso / Rutas
@@ -35,3 +35,8 @@ GET de una tarea en particular
 DELETE, POST, PUT
 
 ### https://mernbackend-production-c23a.up.railway.app/posts/:id
+
+Nodejs & Express - Desarrollo Backend por alekusa,
+en estudio del backend como autodidacta .!
+gracias a Fazt y su canal en youtube /
+https://www.youtube.com/@FaztCode
