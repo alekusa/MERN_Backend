@@ -2,10 +2,10 @@
 // ## joi , expressvalidator , convertir a typescript , testing . ntn testing ## //
 
 //importando el modelo
-
 import Post from "../models/post.js";
+//importa las funciones de manejo de cludinary, upload and delete
 import { uploadImage, deleteImage } from "../libs/cloudinary.js";
-// fs-extra para elimiar imagenes del server
+// fs-extra para elimiar imagenes del server local
 import fs from "fs-extra";
 
 export const getPosts = async (req, res) => {

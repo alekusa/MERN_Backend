@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router = Router();
-// importando los controladores
+// importando los controladores de post's
 import {
   getPosts,
   createPost,

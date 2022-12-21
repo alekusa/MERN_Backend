@@ -1,9 +1,11 @@
 import express from "express";
+//rutas
 import adminRoutes from "./routes/admin.routes.js";
 import postRoutes from "./routes/posts.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import imgRoutes from "./routes/img.routes.js";
 import fileUpload from "express-fileupload";
+//conecciones desde distintos navegadores
 import cors from "cors";
 
 const app = express();
