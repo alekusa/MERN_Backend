@@ -9,3 +9,7 @@ export const api_key = process.env.api_key;
 export const api_secret = process.env.api_secret;
 //Puerto local o asignado por el host
 export const PORT = process.env.PORT || 3000;
+//coneccion a mysql -> sequelize
+export const USER = process.env.USER;
+export const db_name_mysql = process.env.db_name_mysql;
+export const PASS = process.env.PASS;

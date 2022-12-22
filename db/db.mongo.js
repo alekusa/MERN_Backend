@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 //importando las config / variable de coneccion a mongo db
-import { MONGODB_URI } from "./config.js";
+import { MONGODB_URI } from "../server/config.js";
 
-export async function dbConect() {
+export async function connect_mongodb() {
   const db = await mongoose.connect(
     MONGODB_URI,
     {
@@ -11,7 +11,7 @@ export async function dbConect() {
     },
     (err, res) => {
       if (!err) {
-        console.log("connect successfully");
+        console.log("connection at MONGOSE successfully");
       } else {
         console.log(err);
       }

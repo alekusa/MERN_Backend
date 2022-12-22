@@ -20,7 +20,9 @@
     "fs-extra": "^11.1.0",
     "http-errors": "^2.0.0",
     "mongoose": "^6.7.5",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
