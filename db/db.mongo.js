@@ -11,7 +11,7 @@ export async function connect_mongodb() {
     },
     (err, res) => {
       if (!err) {
-        console.log("connection at MONGOSE successfully");
+        console.log("connection at cloud.mongodb successfully");
       } else {
         console.log(err);
       }
