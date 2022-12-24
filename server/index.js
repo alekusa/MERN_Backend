@@ -12,10 +12,10 @@ import app from "./app.js";
 
 //conectando a la DB MYSQL
 //IMportando los modelos de datos mysql
-import "../server/models/Project.model.js";
-import "../server/models/Task.model.js";
+//import "../server/models/Project.model.js";
+//import "../server/models/Task.model.js";
 //funcion que genera y/o modifica las tablas en la DB
-CrearTablas();
+//CrearTablas();
 //pruebas de conectividad
 //connect_mysql();
 

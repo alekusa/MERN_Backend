@@ -22,7 +22,7 @@ export async function connect_mysql() {
 
 export async function CrearTablas() {
   try {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     console.log("Create/Modifi tables successfully");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
