@@ -8,7 +8,7 @@ export const getProjects = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-export const crerateProject = async (req, res) => {
+export const createProject = async (req, res) => {
   try {
     const { name, priority, description } = req.body;
     const newProject = await Project.create({
@@ -59,6 +59,21 @@ export const deleteProject = async (req, res) => {
       },
     });
     res.sendStatus(204);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+export const getProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const project = await Project.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!project)
+      return res.status(404).json({ message: "No existe el Proyecto" });
+    res.json(project);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
