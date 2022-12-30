@@ -1,24 +1,26 @@
 // Importando la coneccion a la DB MONGO_DB
-import { connect_mongodb } from "../db/db.mongo.js";
+import { connect_mongodb } from '../db/db.mongo.js'
 //Importando coneccion con DB MySql
-import { connect_mysql, CrearTablas } from "../db/db.mysql.js";
+import { connect_mysql, CrearTablas } from '../db/db.mysql.js'
 //importando desde config.js el puerto guardado en .env
-import { PORT } from "./config.js";
-
+import { PORT } from './config.js'
+//Importando coneccion con sqlite
+import { db_seqlise_Conect } from '../db/db.sqlite.js'
 //importando las rutas desde app
-import app from "./app.js";
-// conectando a la DB MOGO
+import app from './app.js'
+//__conectando a la DB MOGO__//
 //connect_mongodb();
 
-//conectando a la DB MYSQL
-//IMportando los modelos de datos mysql
+//__conectar a la DB MYSQL__//
+//__Importando los modelos de datos mysql__//
 //import "../server/models/Project.model.js";
 //import "../server/models/Task.model.js";
-//funcion que genera y/o modifica las tablas en la DB
+//__funcion que genera y/o modifica las tablas en la DB mysql__//
 //CrearTablas();
-//pruebas de conectividad
+//__Pruebas de conectividad__//
 //connect_mysql();
+//db_seqlise_Conect()
 
 // comandos para porner el server en escucha
-app.listen(PORT);
-console.log("Server in running port", PORT);
+app.listen(PORT)
+console.log('Server in running port', PORT)
