@@ -16,6 +16,9 @@ export const Task = sequelize.define(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    idProject: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     timestamps: false,

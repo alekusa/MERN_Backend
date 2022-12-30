@@ -11,12 +11,11 @@ export const getTasks = async (req, res) => {
 
 export const createTask = async (req, res) => {
   try {
-    const { name } = req.body;
-    await Task.create({ name });
-    console.log(req.body);
-    res.send("Creando Task");
+    const { name, idProject } = req.body;
+    await Task.create({ name, idProject });
+    res.send("Task Creado");
   } catch (error) {
-    return res.status(500).jason({ message: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 

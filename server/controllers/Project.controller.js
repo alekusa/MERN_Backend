@@ -1,4 +1,5 @@
 import { Project } from "../models/Project.model.js";
+import { Task } from "../models/Task.model.js";
 
 export const getProjects = async (req, res) => {
   try {
@@ -74,6 +75,18 @@ export const getProject = async (req, res) => {
     if (!project)
       return res.status(404).json({ message: "No existe el Proyecto" });
     res.json(project);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+export const getProjectTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newFind = await Task.findAll({
+      where: { idProject: id },
+    });
+    res.json(newFind);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
