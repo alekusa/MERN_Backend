@@ -1,4 +1,6 @@
 import Movie from '../models/movie.model.js'
+import movieService from '../services/movie.service.js'
+const serv = new movieService()
 //crear una
 export const createMovie = async (req, res) => {
     try {
@@ -14,8 +16,7 @@ export const createMovie = async (req, res) => {
 //mostrar todas
 export const getMovies = async (req, res) => {
     try {
-        const movies = await Movie.findAll()
-        res.send(movies)
+        return res.status(200).json(await serv.getAllMovies(req.query))
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
