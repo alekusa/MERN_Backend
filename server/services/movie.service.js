@@ -11,7 +11,7 @@ class movieService {
         }
 
         if (order) {
-            if (order === 'DESC') {
+            if (order === 'DESC' || order === 'desc') {
                 orderby.push(['createdAt', 'DESC'])
             } else {
                 orderby.push(['createdAt', 'ASC'])
