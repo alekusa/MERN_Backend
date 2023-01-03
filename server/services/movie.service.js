@@ -1,15 +1,25 @@
+import { Op } from 'sequelize'
 import Movie from '../models/movie.model.js'
 
 class movieService {
     async getAllMovies(query) {
-        const { name } = query
+        const { name, order } = query
         let queryToFind = {}
+        let orderby = []
         if (name) {
-            queryToFind.title = name
+            queryToFind.title = { [Op.like]: `%${name}%` }
         }
-        console.log(queryToFind)
+
+        if (order) {
+            if (order === 'DESC') {
+                orderby.push(['createdAt', 'DESC'])
+            } else {
+                orderby.push(['createdAt', 'ASC'])
+            }
+        }
         return await Movie.findAll({
-            where: queryToFind
+            where: queryToFind,
+            order: orderby
         })
     }
 }
