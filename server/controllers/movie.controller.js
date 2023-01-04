@@ -16,7 +16,7 @@ export const createMovie = async (req, res) => {
 //mostrar todas
 export const getMovies = async (req, res) => {
     try {
-        return res.status(200).json(await serv.getAllMovies(req.query))
+        res.status(200).json(await serv.getAllMovies(req.query))
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
@@ -42,13 +42,16 @@ export const editMovie = async (req, res) => {
 }
 //mostrar una
 export const getMovie = async (req, res) => {
-    const { id } = req.params
     try {
-        const movie = await Movie.findByPk(id)
-        res.json(movie)
-    } catch (error) {
-        return res.status(500).json({ message: error.message })
-    }
+        res.status(200).json(await serv.getMovie(req.params.id))
+    } catch (error) {}
+    // const { id } = req.params
+    // try {
+    //     const movie = await Movie.findByPk(id)
+    //     res.json(movie)
+    // } catch (error) {
+    //     return res.status(500).json({ message: error.message })
+    // }
 }
 //eliminar una
 export const deleteMovie = async (req, res) => {

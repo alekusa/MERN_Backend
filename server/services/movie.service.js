@@ -22,6 +22,9 @@ class movieService {
             order: orderby
         })
     }
+    async getMovie(id) {
+        return await Movie.findByPk(id)
+    }
 }
 
 export default movieService
