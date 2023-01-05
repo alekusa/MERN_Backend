@@ -1,4 +1,4 @@
-import { Op } from 'sequelize'
+import { json, Op } from 'sequelize'
 import Movie from '../models/movie.model.js'
 
 class movieService {
@@ -24,6 +24,35 @@ class movieService {
     }
     async getMovie(id) {
         return await Movie.findByPk(id)
+    }
+    async createMovie(object) {
+        const { title } = object
+        const [movie, created] = await Movie.findOrCreate({
+            where: { title },
+            defaults: object
+        })
+        if (created) {
+            return movie
+        } else {
+            return json('the movie already exists')
+        }
+    }
+    async updateMovie(id, object) {
+        await Movie.update(object, {
+            where: id
+        })
+        return Movie.findOne({
+            where: id
+        })
+    }
+    async deleteMovie(id) {
+        const exist = await Movie.findOne({ where: id })
+        if (exist) {
+            Movie.destroy({ where: id })
+            return json('Movie deleted')
+        } else {
+            return json(`the id does not exist`)
+        }
     }
 }
 
