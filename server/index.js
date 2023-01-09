@@ -9,7 +9,7 @@ import { db_seqlise_Conect } from '../db/db.sqlite.js'
 //importando las rutas desde app
 import app from './app.js'
 //__conectando a la DB MOGO__//
-//connect_mongodb();
+connect_mongodb()
 
 //__conectar a la DB MYSQL__//
 //__Importando los modelos de datos mysql__//

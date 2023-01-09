@@ -1,4 +1,3 @@
-import Movie from '../models/movie.model.js'
 import movieService from '../services/movie.service.js'
 const serv = new movieService()
 //crear una
