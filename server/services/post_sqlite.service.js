@@ -2,7 +2,7 @@ import { json, where } from 'sequelize'
 import Post_sqlite from '../models/post.sequelize.js'
 //correjir que solo genera un dato con titulo sin descripcion ni imagen
 class post_sqlite_Serv {
-    async create_PostSqlite(object) {
+    async createPost_Sqlite(object) {
         //console.log(object)
         const { title } = object
         const [post, created] = await Post_sqlite.findOrCreate({
