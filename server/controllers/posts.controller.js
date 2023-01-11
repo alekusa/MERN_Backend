@@ -31,7 +31,7 @@ export const createPost = async (req, res) => {
         await newPost.save()
         return res.send(newPost)
     } catch (error) {
-        return res.sendStatus(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
 export const updatePost = async (req, res) => {
@@ -45,27 +45,27 @@ export const updatePost = async (req, res) => {
         )
         return res.send(updatePost)
     } catch (error) {
-        return res.sendStatus(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
 export const deletePost = async (req, res) => {
     try {
         const postRemove = await Post.findByIdAndDelete(req.params.id)
-        if (!postRemove) return res.sendStatus(404)
+        if (!postRemove) return res.status(404)
         if (postRemove.image.public_id) {
             await deleteImage(postRemove.image.public_id)
         }
-        return res.sendStatus(204)
+        return res.status(204)
     } catch (error) {
-        return res.sendStatus(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
 export const getPost = async (req, res) => {
     try {
         const post = await Post.findById(req.params.id)
-        if (!post) return res.sendStatus(404)
+        if (!post) return res.status(404)
         return res.json(post)
     } catch (error) {
-        return res.sendStatus(500).json({ message: error.message })
+        return res.status(500).json({ message: error.message })
     }
 }
