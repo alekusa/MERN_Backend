@@ -1,22 +1,19 @@
 import { Router } from 'express'
 import {
     createPost_sqlite,
-    getPost_sqlite
+    deletePost_sqlite,
+    getPosts_sqlite,
+    getPost_sqlite,
+    updatePost_sqlite
 } from '../controllers/post_sqlite.controller.js'
 const route = Router()
 
-route.get('/post_sqlite', getPost_sqlite)
+route.get('/post_sqlite', getPosts_sqlite)
 
 route.post('/post_sqlite', createPost_sqlite)
 
-route.put('/post_sqlite/:id', (req, res) => {
-    res.send('[put] posts Sqlite_seqelize')
-})
-route.delete('/post_sqlite/:id', (req, res) => {
-    res.send('[delete] posts Sqlite_seqelize')
-})
-route.get('/post_sqlite/:id', (req, res) => {
-    res.send('[get:/id] post Sqlite_seqelize')
-})
+route.put('/post_sqlite/:id', updatePost_sqlite)
+route.delete('/post_sqlite/:id', deletePost_sqlite)
+route.get('/post_sqlite/:id', getPost_sqlite)
 
 export default route

@@ -5,10 +5,12 @@ const Post_sqlite = db_sqlite.define(
     'Post_sqlite',
     {
         title: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
         description: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
         image: {
             type: DataTypes.STRING
