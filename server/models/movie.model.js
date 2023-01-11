@@ -18,6 +18,9 @@ const Movie = db_sqlite.define(
                 max: 5
             }
         }
+        // genre: {
+        //     type: DataTypes.INTEGER
+        // }
     },
     {
         // Other model options go here

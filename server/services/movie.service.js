@@ -29,7 +29,7 @@ class movieService {
         const { title } = object
         const [movie, created] = await Movie.findOrCreate({
             where: { title },
-            defaults: object
+            default: object
         })
         if (created) {
             return movie
