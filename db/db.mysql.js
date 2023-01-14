@@ -11,6 +11,7 @@ export const sequelize = new Sequelize(db_name_mysql, USER, PASS, {
     }
 })
 
+//* Funcion de comprovacion *//
 export async function connect_mysql() {
     try {
         await sequelize.authenticate()
@@ -19,7 +20,7 @@ export async function connect_mysql() {
         console.error('Unable to connect to the database:', error)
     }
 }
-
+//* funcion de creacion de tablas *//
 export async function CrearTablas() {
     try {
         await sequelize.sync({ force: false })

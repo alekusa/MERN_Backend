@@ -1,9 +1,9 @@
-import { Task } from '../models/Task.model.js'
+import TaskService from '../services/task.service.js'
+const serv = new TaskService()
 
 export const getTasks = async (req, res) => {
     try {
-        const newTask = await Task.findAll()
-        res.json(newTask)
+        res.status(200).json(await serv.getTasks())
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
@@ -11,9 +11,7 @@ export const getTasks = async (req, res) => {
 
 export const createTask = async (req, res) => {
     try {
-        const { name, idProject } = req.body
-        await Task.create({ name, idProject })
-        res.send('Task Creado')
+        res.json(await serv.createTask(req.body))
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
@@ -21,13 +19,7 @@ export const createTask = async (req, res) => {
 
 export const deleteTask = async (req, res) => {
     try {
-        const { id } = req.params
-        await Task.destroy({
-            where: {
-                id
-            }
-        })
-        res.send(`la tarea con id ${id} Fue Borrada`)
+        res.status(200).json(await serv.deleteTask(req.params))
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
@@ -35,14 +27,7 @@ export const deleteTask = async (req, res) => {
 
 export const getTask = async (req, res) => {
     try {
-        const { id } = req.params
-        const result = await Task.findOne({
-            where: {
-                id
-            }
-        })
-        if (!result) return res.status(500).json({ message: 'NO existe tarea' })
-        res.json(result)
+        return res.status(200).json(await serv.getTask(req.params))
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
@@ -50,18 +35,7 @@ export const getTask = async (req, res) => {
 
 export const updateTask = async (req, res) => {
     try {
-        const { id } = req.params
-        const { name } = req.body
-        await Task.update(
-            {
-                name: name
-            },
-            {
-                where: { id }
-            }
-        )
-        const task = await Task.findByPk(id)
-        res.json(task)
+        return res.status(200).json(await serv.updateTask(req.params, req.body))
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }
