@@ -42,5 +42,16 @@ export const signIn = async (req, res) => {
     const user = await User.findOne({
         where: { email: req.body.email }
     })
-    if (user) return res.status(400).json({ message: 'User not fund' })
+    //console.log(user.username)
+    if (!user) return res.status(400).json({ message: 'User not fund' })
+
+    const mathpassword = await serv.comparePassword(
+        req.body.password,
+        user.password
+    )
+    if (!mathpassword) return res.status(401).json({ token: null })
+    const token = jwt.sign({ id: user.id }, 'palabraSecreta', {
+        expiresIn: 86400
+    })
+    res.json({ token: token })
 }
