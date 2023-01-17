@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 //* variables de entorno necesitan ser cargadas en el HOST //
-//! URI_DB , api_key , api_secret //
+//* URI_DB , api_key , api_secret //
 export const MONGODB_URI = process.env.URI_DB
 //* coneccion a cloudinary  IMAGENES en cloud //
 export const cloud_name = 'devverudd'

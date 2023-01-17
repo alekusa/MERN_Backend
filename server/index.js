@@ -16,14 +16,15 @@ import app from './app.js'
 //import "../server/models/Task.model.js";
 //__funcion que genera y/o modifica las tablas en la DB mysql__//
 //CrearTablas();
-//__Pruebas de conectividad__//
+//!__Pruebas de conectividad__//
 //connect_mysql();
 //db_seqlise_Conect()
 
-//ejecutar para insertar datos en tablas movie, ademas genera clave foranea movie genre
+//ejecutar para insertar datos en tablas movie, ademas genera clave foranea genre en tabla Movie
 import dbconfig from './config/configDb.js'
 const ejecutar = new dbconfig()
-//ejecutar.conf()
-// comandos para poner el server en escucha
+//ejecutar.userAndRole() //* crea la foreingKey role en User
+//ejecutar.movieAndGenre() //* Crea la forenigkey genre en Movie y rellena con datos
+//* comandos para poner el server en escucha
 app.listen(PORT)
 console.log('Server in running port', PORT)
