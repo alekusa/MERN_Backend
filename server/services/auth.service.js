@@ -6,6 +6,7 @@ const serv = new servCript()
 import jwt from 'jsonwebtoken'
 
 class authService {
+    //* function para logeo y generar token.! //
     async mathpassword(bodyPass, bodyEmail) {
         const user = await User.findOne({
             where: { email: bodyEmail }
@@ -20,7 +21,8 @@ class authService {
             return { Password: 'Password Incorrect', token: 'Null' }
         }
     }
-    //! function para crear usuarios nuevos !
+    //* function para crear usuarios nuevos ! //
+
     async newUsers(object) {
         const { username, email, password, role } = object
         const existEmail = await User.findOne({ where: { email } })
