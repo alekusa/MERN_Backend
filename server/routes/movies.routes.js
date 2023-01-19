@@ -7,12 +7,12 @@ import {
     getMovies
 } from '../controllers/movie.controller.js'
 const router = Router()
-import { verifyToken } from '../middlewares/index.js'
+import { authjwt } from '../middlewares/index.js'
 
 router.get('/movie', getMovies)
-router.post('/movie', verifyToken, createMovie)
-router.put('/movie/:id', verifyToken, editMovie)
+router.post('/movie', [authjwt.verifyToken, authjwt.isAdmin], createMovie)
+router.put('/movie/:id', authjwt.verifyToken, editMovie)
 router.get('/movie/:id', getMovie)
-router.delete('/movie/:id', verifyToken, deleteMovie)
+router.delete('/movie/:id', authjwt.verifyToken, deleteMovie)
 
 export default router

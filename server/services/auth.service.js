@@ -35,7 +35,6 @@ class authService {
             })
             if (role) {
                 const idRole = await Role.findOne({ where: { name: role } })
-                console.log(idRole.id)
                 if (idRole) {
                     newUser.role = idRole.id
                     await newUser.save()
