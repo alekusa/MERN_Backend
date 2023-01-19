@@ -20,7 +20,17 @@ export const verifyToken = async (req, res, next) => {
 }
 
 export const isAdmin = async (req, res, next) => {
-    const user = await User.findByPk(req.userId)
-    console.log(user)
-    //await Role.findByPk()
+    try {
+        const user = await User.findByPk(req.userId)
+        const role = await Role.findOne({ where: { id: user.role } })
+        if (role.name === 'Admin') {
+            next()
+        } else {
+            res.status(200).json({
+                Error: `the user ${role.name}, does not have permissions`
+            })
+        }
+    } catch (error) {
+        res.status(200).json({ message: error.message })
+    }
 }

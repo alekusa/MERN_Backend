@@ -13,6 +13,6 @@ router.get('/movie', getMovies)
 router.post('/movie', [authjwt.verifyToken, authjwt.isAdmin], createMovie)
 router.put('/movie/:id', authjwt.verifyToken, editMovie)
 router.get('/movie/:id', getMovie)
-router.delete('/movie/:id', authjwt.verifyToken, deleteMovie)
+router.delete('/movie/:id', [authjwt.verifyToken, authjwt.isAdmin], deleteMovie)
 
 export default router
