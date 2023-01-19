@@ -38,18 +38,23 @@ class movieService {
         }
     }
     async updateMovie(id, object) {
-        await Movie.update(object, {
-            where: id
-        })
-        return Movie.findOne({
-            where: id
-        })
+        const existeMovie = await Movie.findByPk(id.id)
+        if (existeMovie) {
+            await Movie.update(object, {
+                where: id
+            })
+            return Movie.findOne({
+                where: id
+            })
+        } else {
+            return { message: 'the movie does not exist' }
+        }
     }
     async deleteMovie(id) {
         const exist = await Movie.findOne({ where: id })
         if (exist) {
             Movie.destroy({ where: id })
-            return json('Movie deleted')
+            return json(`Movie ( ${exist.title} ) deleted`)
         } else {
             return json(`the id does not exist`)
         }
