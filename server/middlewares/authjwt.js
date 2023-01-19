@@ -25,10 +25,12 @@ export const isAdmin = async (req, res, next) => {
         const role = await Role.findOne({ where: { id: user.role } })
         if (role.name === 'Admin') {
             next()
+            return
         } else {
             res.status(200).json({
                 Error: `the user ${role.name}, does not have permissions`
             })
+            return
         }
     } catch (error) {
         res.status(200).json({ message: error.message })
