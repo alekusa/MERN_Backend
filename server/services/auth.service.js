@@ -21,8 +21,8 @@ class authService {
             return { Password: 'Password Incorrect', token: 'Null' }
         }
     }
-    //* function para crear usuarios nuevos ! //
 
+    //* function para crear usuarios nuevos ! //
     async newUsers(object) {
         const { username, email, password, role } = object
         const existEmail = await User.findOne({ where: { email } })

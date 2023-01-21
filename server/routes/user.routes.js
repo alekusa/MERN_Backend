@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { getUsers } from '../controllers/user.controller.js'
+import { editUser, getUsers } from '../controllers/user.controller.js'
 const router = Router()
 
 router.get('/user', getUsers)
+router.put('/user/:id', editUser)
 
 export default router
