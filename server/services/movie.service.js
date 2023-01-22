@@ -1,5 +1,6 @@
 import { json, Op } from 'sequelize'
 import Movie from '../models/movie.model.js'
+import Genre from '../models/genre.model.js'
 
 class movieService {
     async getAllMovies(query) {
@@ -26,15 +27,23 @@ class movieService {
         return await Movie.findByPk(id)
     }
     async createMovie(object) {
-        const { title } = object
-        const [movie, created] = await Movie.findOrCreate({
-            where: { title },
-            defaults: object
-        })
-        if (created) {
-            return movie
+        const { genre } = object
+        const newMovie = Movie.build(object)
+        if (object.genre) {
+            const ojectGenre = await Genre.findOne({ where: { name: genre } })
+            if (ojectGenre) {
+                const idGnre = ojectGenre.id
+                newMovie.genre = idGnre
+                newMovie.save()
+                return newMovie
+            } else {
+                return 'el genero no existe'
+            }
         } else {
-            return json('the movie already exists')
+            const idGenre = 1
+            newMovie.genre = idGenre
+            newMovie.save()
+            return newMovie
         }
     }
     async updateMovie(id, object) {

@@ -17,10 +17,10 @@ const Movie = db_sqlite.define(
                 min: 1,
                 max: 5
             }
+        },
+        genre: {
+            type: DataTypes.INTEGER
         }
-        // genre: {
-        //     type: DataTypes.INTEGER
-        // }
     },
     {
         // Other model options go here
