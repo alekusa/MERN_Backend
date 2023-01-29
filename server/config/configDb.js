@@ -12,11 +12,12 @@ class dbconfig {
         )
         //! Generando la clave foranea uno a muchos en la tabla Genre !//
         Movie.belongsTo(Genre, { foreignKey: 'genre' })
+        //* VER Opcion force para que no elimine los registros de las demas tablas
         await db_sqlite.sync({ force: true })
         await Genre.bulkCreate([
-            { name: 'genero 1', picture: 'http://img_1,jpg' },
-            { name: 'genero 2', picture: 'http://img_2,jpg' },
-            { name: 'genero 3', picture: 'http://img_3,jpg' }
+            { name: 'accion', picture: 'http://img_Genre,jpg' },
+            { name: 'terror', picture: 'http://img_Genre,jpg' },
+            { name: 'grama', picture: 'http://img_genre,jpg' }
         ])
         await Movie.bulkCreate([
             {
@@ -61,6 +62,29 @@ class dbconfig {
             { name: 'Users' },
             { name: 'Admin' },
             { name: 'Supervisor' }
+        ])
+        await User.bulkCreate([
+            {
+                username: 'Ale_1',
+                password:
+                    '$2a$10$iSZcelwM6sXS/V/e5WvEnu8APUCpXonffqMey0BruysXwzHagv/5K',
+                email: 'ale_1',
+                role: 1
+            },
+            {
+                username: 'Ale_2',
+                password:
+                    '$2a$10$iSZcelwM6sXS/V/e5WvEnu8APUCpXonffqMey0BruysXwzHagv/5K',
+                email: 'ale_2',
+                role: 2
+            },
+            {
+                username: 'Ale_3',
+                password:
+                    '$2a$10$iSZcelwM6sXS/V/e5WvEnu8APUCpXonffqMey0BruysXwzHagv/5K',
+                email: 'ale_3',
+                role: 1
+            }
         ])
     }
 }
