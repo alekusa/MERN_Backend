@@ -1,5 +1,7 @@
 import Role from '../models/role.model.js'
 import User from '../models/user.model.js'
+import authService from '../services/auth.service.js'
+const servAuth = new authService()
 
 export const getUsers = async (req, res) => {
     try {
@@ -25,6 +27,13 @@ export const editUser = async (req, res) => {
         }
         await User.update(data, { where: id })
         res.status(200).json('User Update')
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+export const newUser = async (req, res) => {
+    try {
+        await servAuth.newUsers(req.body)
     } catch (error) {
         res.status(500).json({ message: error.message })
     }
