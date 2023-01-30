@@ -7,7 +7,6 @@ import {
     getUser
 } from '../controllers/user.controller.js'
 const router = Router()
-import { editUser, getUsers, newUser } from '../controllers/user.controller.js'
 
 router.get('/user', getUsers)
 router.get('/user/:id', getUser)
