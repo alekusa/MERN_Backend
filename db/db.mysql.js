@@ -1,20 +1,15 @@
 import { Sequelize } from 'sequelize'
 import { db_name_mysql, PASS, USER } from '../server/config/config.js'
 
-export const sequelize = new Sequelize(
-    db_name_mysql,
-    'emhurwdnnnk59ercgryu',
-    PASS,
-    {
-        host: 'us-east.connect.psdb.cloud',
-        dialect: 'mysql',
-        dialectOptions: {
-            ssl: {
-                rejectUnauthorized: true
-            }
+export const sequelize = new Sequelize(db_name_mysql, USER, PASS, {
+    host: 'us-east.connect.psdb.cloud',
+    dialect: 'mysql',
+    dialectOptions: {
+        ssl: {
+            rejectUnauthorized: true
         }
     }
-)
+})
 
 //* Funcion de comprovacion *//
 export async function connect_mysql() {
