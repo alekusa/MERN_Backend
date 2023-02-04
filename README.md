@@ -1,5 +1,7 @@
 # MERN - Backend Estudio autodidacta
 
+![Screenshot](db.png)
+
 ## Api Rest creada en Node.js Express MongoDB Cludinary
 
 ### Utilizando Librerias como:
